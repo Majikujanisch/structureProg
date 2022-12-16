@@ -1,0 +1,7 @@
+created logging file
+1671185096832 registration [object Object] [object Object]
+1671185163029 registration [object Object] [object Object]
+1671185747334 registration [object Object] [object Object] Failed due to an existing User with this Username
+1671185749473 registration [object Object] [object Object] Failed due to an existing User with this Username
+1671185765702 registration [object Object] [object Object] Worked
+1671185766497 registration [object Object] [object Object] Failed due to an existing User with this Username

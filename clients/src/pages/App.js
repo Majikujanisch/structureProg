@@ -2,13 +2,13 @@
 import './App.css';
 
 import React  from 'react';
-const username = "test2"
+const username = "me2"
 const pw = "test"
 const data = {username, pw}
 const bodybuilt = JSON.stringify(data)
 function App() {
   const handleclick = async ()=>{
-    console.log("handleCLick")
+    console.log("handleCLick " + bodybuilt)
     await fetch('http://localhost:5000/api/registration', {
       method: 'POST',
       headers:{
