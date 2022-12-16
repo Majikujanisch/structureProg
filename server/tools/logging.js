@@ -1,4 +1,5 @@
 const fs = require ('fs')
+const pD = require('./prettyDate')
 path = './logs/logall.txt'
 
 
@@ -17,7 +18,7 @@ function logApi (req, res, type, reason){
         case 'registration':
             switch (reason){
                 case '0':
-                    var content = '\n' +  Date.now() + " registration " + username + " Worked";
+                    var content = '\n' +  pD.prettyDate() + " registration " + username + " Worked";
                     fs.appendFile(path, content, err => {
                     if (err) {
                         console.error(err);
@@ -25,7 +26,7 @@ function logApi (req, res, type, reason){
              });
              break;
              case '1':
-                var content = '\n' +  Date.now() + " registration " + username +  " Failed due to an existing User with this Username";
+                var content = '\n' +  pD.prettyDate()  + " registration " + username +  " Failed due to an existing User with this Username";
                     fs.appendFile(path, content, err => {
                     if (err) {
                         console.error(err);
