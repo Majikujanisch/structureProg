@@ -3,7 +3,7 @@ path = './logs/logall.txt'
 
 
 function logApi (req, res, type, reason){
-    console.log(req)
+    username = req.body.username
     console.log(!fs.existsSync(path))
     if (!fs.existsSync(path)){
         console.log("If-Abfrage")
@@ -17,7 +17,7 @@ function logApi (req, res, type, reason){
         case 'registration':
             switch (reason){
                 case '0':
-                    var content = '\n' +  Date.now() + " registration " + req + " " + res +  " Worked";
+                    var content = '\n' +  Date.now() + " registration " + username + " Worked";
                     fs.appendFile(path, content, err => {
                     if (err) {
                         console.error(err);
@@ -25,7 +25,7 @@ function logApi (req, res, type, reason){
              });
              break;
              case '1':
-                var content = '\n' +  Date.now() + " registration " + req + " " + res +  " Failed due to an existing User with this Username";
+                var content = '\n' +  Date.now() + " registration " + username +  " Failed due to an existing User with this Username";
                     fs.appendFile(path, content, err => {
                     if (err) {
                         console.error(err);
