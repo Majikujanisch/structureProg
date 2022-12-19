@@ -4,7 +4,7 @@ path = './logs/logall.txt'
 
 
 function logApi (req, res, type, reason){
-    username = req.body.username
+    username = req.body.user
     console.log(!fs.existsSync(path))
     if (!fs.existsSync(path)){
         console.log("If-Abfrage")
