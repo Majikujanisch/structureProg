@@ -7,3 +7,4 @@ function registration() {
         </div>
     )
 }
+export default registration
