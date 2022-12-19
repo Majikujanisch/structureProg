@@ -24,9 +24,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        <button onClick={handleclick}>api write</button>
-          Learn React
-        <a href='./pages/regristration'><button></button></a>
       </header>
     </div>
   );
