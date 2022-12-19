@@ -24,15 +24,16 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
  app.post('/api/registration', async (req, res)=>{
-    const username = req.body.username
-    const pw = req.body.pw
+    const username = req.body.user
+    const pw = req.body.password
+    const email = req.body.email
     console.log(username + " " + pw)
     db.query("select * from user where username=?", [username], (err, result) =>{
       console.log(result)
       //Error occurs if no user with this username is found, so this user is not in the system and should be 
       //added
       if(err || result.length === 0){
-        db.query("insert into user (username, pw) values (?,?)", [username, pw], (err, result)=>{
+        db.query("insert into user (username, pw, email) values (?,?,?)", [username, pw, email], (err, result)=>{
           if(err){
               console.log((err))
           }
