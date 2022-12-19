@@ -1,22 +1,35 @@
 import React from "react";
-
+import api from '../tools/apiCalls.js'
 class RegiForm extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {Name: '',
+        Email: '',
+        Password: ''};
     
-        this.handleChangeName = this.handleChange.bind(this);
-        this.handleChangeEmail = this.handleChange.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePass = this.handleChangePass.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
       }
     
-      handleChange(event) {
-        this.setState({value: event.target.value});
+      handleChangeName(event) {
+        this.setState({Name: event.target.value})
+      }
+
+      handleChangeEmail(event) {
+        this.setState({Email: event.target.value})
+      }
+
+      handleChangePass(event) {
+        this.setState({Password: event.target.value})
       }
     
       handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
+        console.log(this.state.Password)
+        let API = new api()
+        API.RegiCall(this.state.Password, this.state.Name, this.state.Email)
       }
     
       render() {
@@ -24,11 +37,11 @@ class RegiForm extends React.Component{
           <form onSubmit={this.handleSubmit}>
             <label>
               Email: 
-              <input type="text" value={this.state.value} onChange={this.handleChangeName} />
+              <input type="text" value={this.state.Email} onChange={this.handleChangeEmail} /> <br></br>
               Username:
-              <input type="text" value={this.state.value} onChange={this.handleChangeName} />
+              <input type="text" value={this.state.Name} onChange={this.handleChangeName} /><br></br>
               Password:
-              <input type="text" value={this.state.value} onChange={this.handleChangeEmail} />
+              <input type="password" value={this.state.Password} onChange={this.handleChangePass} />
               
             </label>
             <input type="submit" value="Submit" />
