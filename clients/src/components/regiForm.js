@@ -1,5 +1,6 @@
 import React from "react";
 import api from '../tools/apiCalls.js'
+import sha512 from "js-sha512"
 class RegiForm extends React.Component{
     constructor(props) {
         super(props);
@@ -29,7 +30,8 @@ class RegiForm extends React.Component{
         event.preventDefault();
         console.log(this.state.Password)
         let API = new api()
-        API.RegiCall(this.state.Password, this.state.Name, this.state.Email)
+        const pwToSent = sha512.sha512(this.state.Password)
+        API.RegiCall(pwToSent, this.state.Name, this.state.Email)
       }
     
       render() {
