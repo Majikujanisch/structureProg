@@ -58,6 +58,9 @@ class RegiForm extends React.Component{
           if(this.state.Password === ''){
             element.push(<p>Passwort is empty</p>)
           }
+          else if (this.state.Password.length < 8){
+            element.push(<p>Passwort is to short, should be longer than or be 8</p>)
+          }
           console.log(element)
           ele.render(element)
         }
