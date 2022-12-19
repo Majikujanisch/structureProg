@@ -4,6 +4,7 @@ const cors = require("cors");
 const db = require("../config/db")
 const logger = require('../tools/logging')
 const app = express()
+const standartSha = 'cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e'
 /*if client has authentication issues:
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pw';
 flush privileges;
@@ -27,7 +28,16 @@ app.listen(port, () => {
     const username = req.body.user
     const pw = req.body.password
     const email = req.body.email
+    let NotEmpty = false
     console.log(username + " " + pw)
+    if(username == '' || email == '' || pw == standartSha){
+      NotEmpty = false
+      logger.logApi(req, res, 'registration', '2')
+    }
+    else {
+      NotEmpty = true;
+    }
+    if(NotEmpty){
     db.query("select * from user where username=?", [username], (err, result) =>{
       console.log(result)
       //Error occurs if no user with this username is found, so this user is not in the system and should be 
@@ -46,7 +56,6 @@ app.listen(port, () => {
         logger.logApi(req, res, 'registration', '1')
       }
     })
-  
-    
- })
+    }//Empty IF
+})
  console.log(process.env.HOST_DB)
