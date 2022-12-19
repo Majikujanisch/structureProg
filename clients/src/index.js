@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Root from './routes/root';
-import App from './pages/App';
+import Regi from './pages/regristration';
 import ErrorPage from './pages/ErrorPage';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "register",
-        element: <App />,
+        element: <Regi/>,
       },
     ],
 
