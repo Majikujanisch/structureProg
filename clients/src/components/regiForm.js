@@ -1,3 +1,5 @@
+import React from "react";
+
 class RegiForm extends React.Component{
     constructor(props) {
         super(props);
@@ -21,9 +23,11 @@ class RegiForm extends React.Component{
         return (
           <form onSubmit={this.handleSubmit}>
             <label>
-              Name:
+              Email: 
               <input type="text" value={this.state.value} onChange={this.handleChangeName} />
-              Email:
+              Username:
+              <input type="text" value={this.state.value} onChange={this.handleChangeName} />
+              Password:
               <input type="text" value={this.state.value} onChange={this.handleChangeEmail} />
               
             </label>
@@ -32,3 +36,6 @@ class RegiForm extends React.Component{
         );
       }
     }
+
+
+export default RegiForm;
