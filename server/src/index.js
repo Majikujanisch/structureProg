@@ -58,4 +58,8 @@ app.listen(port, () => {
     })
     }//Empty IF
 })
- console.log(process.env.HOST_DB)
+app.get("/api/getUser", async(req, res) => {
+  res.send(200)
+})
+
+console.log("API Started")
