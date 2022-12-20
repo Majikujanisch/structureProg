@@ -63,7 +63,7 @@ app.get("/api/getUser/:user", async(req, res) => {
   let result = db.query("select * from user where username=?", [username], (err, result) =>{
     console.log(result)
 
-    res.send(200)
+    res.sendStatus(200)
   })
 })
 
