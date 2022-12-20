@@ -58,8 +58,13 @@ app.listen(port, () => {
     })
     }//Empty IF
 })
-app.get("/api/getUser", async(req, res) => {
-  res.send(200)
+app.get("/api/getUser/:user", async(req, res) => {
+  let username = req.params.user
+  let result = db.query("select * from user where username=?", [username], (err, result) =>{
+    console.log(result)
+
+    res.send(200)
+  })
 })
 
 console.log("API Started")
