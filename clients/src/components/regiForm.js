@@ -31,9 +31,11 @@ class RegiForm extends React.Component{
         event.preventDefault();
         const ele = ReactDOM.createRoot(document.getElementById('error'))
         let API = new api()
+        API.GetCall("test")
         if(this.state.Email != ''&& this.state.Name != '' && this.state.Password != ''){
         const pwToSent = sha512.sha512(this.state.Password)
         API.RegiCall(pwToSent, this.state.Name, this.state.Email)
+        
         let element = ""
         ele.render(element)
         }
