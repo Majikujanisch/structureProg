@@ -18,9 +18,9 @@ class api{
     console.log(err.message)
     )}
     async GetCall (user){
-      let body = JSON.stringify(user)
       let res = await fetch ("http://localhost:5000/api/getUser/"+user)
-      console.log(res)
+      let data = await res.json()
+      console.log(data)
     }
 
 

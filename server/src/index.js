@@ -58,12 +58,13 @@ app.listen(port, () => {
     })
     }//Empty IF
 })
+//getUser/user -> dynamic API Route
 app.get("/api/getUser/:user", async(req, res) => {
   let username = req.params.user
-  let result = db.query("select * from user where username=?", [username], (err, result) =>{
-    console.log(result)
-
-    res.sendStatus(200)
+  db.query("select * from user where username=?", [username], (err, result) =>{
+    resul = result[0]
+    console.log(resul)
+    return res.json(resul)
   })
 })
 
