@@ -69,26 +69,31 @@ app.get("/api/getUser/:user", async(req, res) => {
   })
 })
 
-app.post("/api/login"), async(req, res) => {
-  let email = request.body.email
-  let pw = request.body.pw
+app.post("/api/login", async(req, res) => {
+  console.log("login")
+  let email = req.body.user
+  let pw = req.body.pw
+  console.log(email)
   if(email && pw){
     db.query('SELECT * FROM user WHERE email = ? AND pw = ?', [email, pw], (err, result)=> {
+      console.log(result)
       if(err) {
         console.log(err)
       if(result.length > 0){
-        request.session.loggedin = true;
-				request.session.username = username;
+        req.session.loggedin = true;
+				req.session.username = username;
 				// Redirect to home page
-				response.redirect('/');
+				//res.redirect('/home');
+        res.send("logged in")
       }
       else {
-        response.send("incorrect email or password")
+        res.send("incorrect email or password")
       }
-      response.end();
+      res.end();
     }});
   }
-}
+  res.send("no inputs")
+})
 
 app.get('/home', function(request, response) {
 	// If the user is loggedin

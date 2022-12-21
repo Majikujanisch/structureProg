@@ -23,8 +23,21 @@ class api{
       console.log(data)
     }
     async LoginCall(pw, user){
-      let call = await fetch ("http://localhost:5000/api/login")
-      console.log("login")
+      
+      let data = {pw, user}
+      let bodybuilt = JSON.stringify(data)
+      let call = await fetch ("http://localhost:5000/api/login", {
+        method: 'POST',
+        headers:{
+        'Content-type': 'application/json'},
+        body: bodybuilt,
+      }).then((data)=>{
+        console.log(data)
+      }).catch((err)=>
+      console.log(err.message)
+      )
+      
+      
     }
 
 
