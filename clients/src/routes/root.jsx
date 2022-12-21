@@ -34,7 +34,7 @@ export default function Root() {
                 <a href={`register`}>Register</a>
               </li>
               <li>
-                <a href={`contacts/2`}>Your Friend</a>
+                <a href={`login`}>login</a>
               </li>
             </ul>
           </nav>

@@ -22,6 +22,10 @@ class api{
       let data = await res.json()
       console.log(data)
     }
+    async LoginCall(pw, user){
+      let call = await fetch ("http://localhost:5000/api/login")
+      console.log("login")
+    }
 
 
 
