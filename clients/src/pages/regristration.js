@@ -1,9 +1,11 @@
-import regi from '../../components/regiForm'
+import RegiForm from '../components/regiForm'
 
 function registration() {
     return(
         <div>
-            <regi></regi>
+            <RegiForm></RegiForm>
+            
         </div>
     )
 }
+export default registration

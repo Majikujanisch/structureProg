@@ -1,17 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './pages/App';
+import Root from './routes/root';
+import Regi from './pages/regristration';
+import Login from './pages/login'
+import ErrorPage from './pages/ErrorPage';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
+  RouterProvider
 } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "register",
+        element: <Regi/>,
+      },
+      {
+        path: "login",
+        element: <Login/>
+      },
+    ],
+
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
