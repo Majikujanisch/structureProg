@@ -39,6 +39,13 @@ class api{
       
       
     }
+    LoginCheck = async function() {
+      console.log("LOGINCHECK")
+      let res = await fetch ("http://localhost:5000/secret")
+      let data = await res.json()
+      console.log(data)
+    }
+
 
 
 

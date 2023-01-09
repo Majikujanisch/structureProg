@@ -36,6 +36,9 @@ export default function Root() {
               <li>
                 <a href={`login`}>login</a>
               </li>
+              <li>
+                <a href={`checkLogin`}>checklogin</a>
+              </li>
             </ul>
           </nav>
         </div>

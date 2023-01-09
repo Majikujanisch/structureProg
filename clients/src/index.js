@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Root from './routes/root';
+import Check from './pages/checkLogin'
 import Regi from './pages/regristration';
 import Login from './pages/login'
 import ErrorPage from './pages/ErrorPage';
 import reportWebVitals from './reportWebVitals';
+
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login/>
+      },
+      {
+        path: "checkLogin",
+        element: <Check/>
       },
     ],
 
