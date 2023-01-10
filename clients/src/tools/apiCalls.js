@@ -31,6 +31,7 @@ class api{
         headers:{
         'Content-type': 'application/json'},
         body: bodybuilt,
+        credentials:"include"
       }).then((data)=>{
         console.log(data)
       }).catch((err)=>
@@ -41,7 +42,9 @@ class api{
     }
     LoginCheck = async function() {
       console.log("LOGINCHECK")
-      let res = await fetch ("http://localhost:5000/secret")
+      
+      let res = await fetch ("http://localhost:5000/secret",
+      {credentials:"include"})
       let data = await res.json()
       console.log(data)
     }
