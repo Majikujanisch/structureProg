@@ -2,7 +2,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Cookies from 'js-cookie';
+
 function navigationbar() {
+  var sessionToken = Cookies.get('SessionToken')
   return (
     <Navbar bg="light" expand="lg" variant="light">
       <Container>
@@ -15,7 +18,7 @@ function navigationbar() {
             <NavDropdown title="Profile" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+                {console.log(sessionToken)} token
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
