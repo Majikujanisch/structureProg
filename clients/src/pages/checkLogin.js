@@ -5,7 +5,7 @@ function checkLogin(){
     return(
         <div>
             <button onClick={API.LoginCheck}>check Login</button>
-            
+            <button onClick={API.Logout}>Logout</button>
         </div>
     )
 }

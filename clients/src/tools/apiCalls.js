@@ -1,4 +1,4 @@
-
+const Cookies = require("js-cookie")
 class api{
     //API Call for registration
     async RegiCall (password, user, email){
@@ -45,8 +45,15 @@ class api{
       
       let res = await fetch ("http://localhost:5000/secret",
       {credentials:"include"})
-      let data = await res.json()
-      console.log(data)
+    }
+    Logout = async function() {
+      console.log("Logout")
+      
+      let res = await fetch ("http://localhost:5000/logout",
+      {credentials:"include"})
+      Cookies.remove("SessionToken",{ path: '' })
+      Cookies.remove("userid",{ path: '' })
+      Cookies.remove("usermail",{ path: '' })
     }
 
 
