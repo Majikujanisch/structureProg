@@ -49,7 +49,7 @@ class api{
     Logout = async function() {
       console.log("Logout")
       
-      let res = await fetch ("http://localhost:5000/logout",
+      let res = await fetch ("http://localhost:5000/api/logout",
       {credentials:"include"})
       Cookies.remove("SessionToken",{ path: '' })
       Cookies.remove("userid",{ path: '' })
