@@ -31,40 +31,45 @@ class RegiForm extends React.Component{
         event.preventDefault();
         const ele = ReactDOM.createRoot(document.getElementById('error'))
         let API = new api()
-        API.GetCall("test")
-        if(this.state.Email != ''&& this.state.Name != '' && this.state.Password != ''){
-        const pwToSent = sha512.sha512(this.state.Password)
-        API.RegiCall(pwToSent, this.state.Name, this.state.Email)
-        
-        let element = ""
-        ele.render(element)
-        }
-        else{
-          console.log(this.state.Email.length);
+        if(this.state.Email != '' && this.state.Name != '' && this.state.Password != ''){
           let element = []
+          let correctInput = true
           element.push(<p> You have to input all information! missing is: </p>)
           
             if(this.state.Email === ''){
               element.push(<p>Email is empty</p>)
+              correctInput = false
             }
             else if(!this.state.Email.includes("@")){
               element.push(<p>Email is not an Email (@)</p>)
+              correctInput = false
             }
             
             else if (this.state.Email.length < 4){
               element.push(<p>Email is to short</p>)
+              correctInput = false
             }
           if(this.state.Name === ''){
             element.push(<p>Username is empty</p>)
+            correctInput = false
           }
           if(this.state.Password === ''){
             element.push(<p>Passwort is empty</p>)
+            correctInput = false
           }
           else if (this.state.Password.length < 8){
             element.push(<p>Passwort is to short, should be longer than or be 8</p>)
+            correctInput = false
           }
-          console.log(element)
           ele.render(element)
+          if(correctInput){
+        const pwToSent = sha512.sha512(this.state.Password)
+        API.RegiCall(pwToSent, this.state.Name, this.state.Email)
+          }
+        
+        }
+        else{
+          
         }
       }
       
